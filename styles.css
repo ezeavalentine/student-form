@@ -1,0 +1,111 @@
+/* Styles for the entire body */
+h1 {
+   color: #1E201E;
+   margin:50px auto 0 auto; 
+   font-family: 'Sacramento', cursive;font-family: 'Lora', serif; 
+   font-size: 3rem;
+   font-weight: bold;
+}
+
+h2  { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #1E201E;
+	top: 0;
+	font-weight: bold;
+
+}
+top-container {
+    position: relative;
+    padding: 0px 0 ;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+		
+		
+.middle-container {
+    margin: 50px 0;
+    position: relative; 
+    top: 100px;
+	justify-content: center;
+    align-items: center;
+	
+	display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+
+.bottom-container {
+    
+    background-color: #921A40;
+    padding: 20px 0 20px;
+    position: relative; 
+    top: 100px;
+}
+.student {
+    width: 800px;
+    height: 500px;
+    position: relative;
+    top: 20px;
+    left:0px;
+}
+
+body {
+    background-color: #F4D9D0;
+    margin: 0;
+    text-align: center;
+   font-family: 'Merriweather', serif;
+}
+
+/* Styling the form container */
+form {
+    background-color: #d9abab;
+    padding: 200px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 100vh;
+}
+
+/* Styling form labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Styling form input fields */
+input[type="text"], input[type="email"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect for the submit button */
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}

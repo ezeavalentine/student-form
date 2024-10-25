@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Firebase App (Firebase v8) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+
+    <div class="top-container">
+        <h1>STUDENT INFORMATION FORM</h1>
+    </div>
+
+    <div class="middle-container">
+        <form id="student-form">
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required><br>
+
+            <label for="reg_no">Reg No:</label>
+            <input type="text" id="reg_no" name="reg_no" required><br>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required><br>
+
+            <label for="level">Level:</label>
+            <input type="text" id="level" name="level" required><br>
+
+            <label for="faculty">Faculty:</label>
+            <input type="text" id="faculty" name="faculty" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br>
+
+            <label for="state_of_origin">State of Origin:</label>
+            <input type="text" id="state_of_origin" name="state_of_origin" required><br>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        // Firebase configuration (use your config here)
+        const firebaseConfig = {
+            apiKey: "AIzaSyA1fA343jaGDLRPZQ43khLDtp4koTshPlQ",
+            authDomain: "valentino-86df8.firebaseapp.com",
+            databaseURL: "https://valentino-86df8-default-rtdb.firebaseio.com",
+            projectId: "valentino-86df8",
+            storageBucket: "valentino-86df8.appspot.com",
+            messagingSenderId: "1007592326072",
+            appId: "1:1007592326072:web:512fcae6907740395f054d",
+            measurementId: "G-BZK91PZ515"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Handle form submission
+        document.getElementById('student-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const studentData = {
+                full_name: document.getElementById('full_name').value,
+                reg_no: document.getElementById('reg_no').value,
+                department: document.getElementById('department').value,
+                level: document.getElementById('level').value,
+                faculty: document.getElementById('faculty').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                gender: document.getElementById('gender').value,
+                state_of_origin: document.getElementById('state_of_origin').value,
+                country: document.getElementById('country').value
+            };
+
+            // Write data to Firebase Realtime Database
+            const newStudentRef = database.ref('students').push();
+            newStudentRef.set(studentData)
+                .then(() => {
+                    console.log('Data submitted successfully');
+                    // Redirect to success page
+                    window.location.href = 'success.html';
+                })
+                .catch(error => {
+                    console.error('Error submitting data:', error);
+                    alert('Error submitting form. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>
